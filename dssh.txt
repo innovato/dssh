@@ -1,0 +1,12 @@
+autoload -U compinit
+compinit
+
+dssh() {
+  docker exec -it $1 /bin/bash
+}
+
+function _dockerautofill(){
+  compadd `docker ps --format '{{.Names}}'`
+}
+
+compdef _dockerautofill dssh
