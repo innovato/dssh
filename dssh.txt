@@ -2,7 +2,7 @@ autoload -U compinit
 compinit
 
 dssh() {
-  docker exec -it $1 /bin/bash
+  docker exec -it $1 /bin/sh -c "[ -e /bin/bash ] && /bin/bash || /bin/sh"
 }
 
 function _dockerautofill(){
